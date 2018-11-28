@@ -54,7 +54,7 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
                   .refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
     }*/
 
-	@Override
+	/*@Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource)
         .withClient(CLIEN_ID).secret(CLIENT_SECRET)
@@ -62,8 +62,14 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
                   .scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
                   .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
                   .refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
-    }
+    }*/
 
+	@Override
+    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
+        clients.jdbc(dataSource);
+    }
+	
+	
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {
         endpoints.tokenStore(tokenStore()).authenticationManager(authenticationManager).userDetailsService(new AccountUserDetailsService());
