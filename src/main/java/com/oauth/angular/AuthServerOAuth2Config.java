@@ -1,4 +1,4 @@
-package com.oauth.angular.integration;
+package com.oauth.angular;
 
 import javax.sql.DataSource;
 
@@ -35,7 +35,6 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
 	@Autowired
     private AuthenticationManager authenticationManager;
 	
-	
 	@Autowired
 	private DataSource dataSource;
 
@@ -44,31 +43,10 @@ public class AuthServerOAuth2Config extends AuthorizationServerConfigurerAdapter
 		return new JdbcTokenStore(dataSource);
 	}
 	
-    /*@Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.
-        inMemory().withClient(CLIEN_ID).secret(CLIENT_SECRET)
-        		  .authorizedGrantTypes(GRANT_TYPE, AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT)
-                  .scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
-                  .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
-                  .refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
-    }*/
-
-	/*@Override
-    public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
-        clients.jdbc(dataSource)
-        .withClient(CLIEN_ID).secret(CLIENT_SECRET)
-        		  .authorizedGrantTypes(GRANT_TYPE, AUTHORIZATION_CODE, REFRESH_TOKEN, IMPLICIT)
-                  .scopes(SCOPE_READ, SCOPE_WRITE, TRUST)
-                  .accessTokenValiditySeconds(ACCESS_TOKEN_VALIDITY_SECONDS)
-                  .refreshTokenValiditySeconds(FREFRESH_TOKEN_VALIDITY_SECONDS);
-    }*/
-
 	@Override
     public void configure(ClientDetailsServiceConfigurer clients) throws Exception {
         clients.jdbc(dataSource);
     }
-	
 	
     @Override
     public void configure(AuthorizationServerEndpointsConfigurer endpoints) throws Exception {

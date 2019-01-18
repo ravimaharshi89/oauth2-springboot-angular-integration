@@ -1,4 +1,4 @@
-package com.oauth.angular.entity;
+package com.oauth.angular.entity.db1;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

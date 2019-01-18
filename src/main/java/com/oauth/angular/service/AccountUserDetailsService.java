@@ -7,7 +7,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
-import com.oauth.angular.repository.AccountRepository;
+import com.oauth.angular.repo.db1.AccountRepository;
 
 public class AccountUserDetailsService implements UserDetailsService {
 
