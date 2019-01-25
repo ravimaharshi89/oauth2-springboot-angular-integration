@@ -41,4 +41,10 @@ public class HelloResource {
         return gatewayService.clearOtpAttempts(msisdn);
     }
     
+    @CrossOrigin(origins = "http://localhost:4200")
+    @GetMapping("/clear-otp-attempts/{msisdn}")
+    public String sendOtp(@PathVariable("msisdn") String msisdn) {
+        return gatewayService.clearOtpAttempts(msisdn);
+    }
+    
 }

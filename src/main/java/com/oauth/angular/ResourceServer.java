@@ -82,7 +82,7 @@ public class ResourceServer extends WebSecurityConfigurerAdapter {
 
 	@Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/rest/hello/fetch-otp/**");
+        web.ignoring().antMatchers("/rest/hello/fetch-otp/**", "/rest/oauth/token");
     }
 	
 	
